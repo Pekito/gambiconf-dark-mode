@@ -16,31 +16,28 @@
   }
 </script>
 
-<div class="theme-switch-wrapper" onclick={toggleTheme}>
-  <div class="icons">
-    {#if $theme === "light"}
-      <FaLayers>
+<button class="theme-switch-wrapper" onclick={toggleTheme} type="button" aria-label="Toggle theme">
+  <FaLayers size="1.5x">
+        {#if $theme === "light"}
         <Fa icon={faMoon} color="#51504d" />
-      </FaLayers>
-    {:else}
-      <FaLayers>
+        {:else}
         <Fa icon={faSun} color="#afa99e" />
-      </FaLayers>
-    {/if}
-  </div>
-</div>
+        {/if}
+  </FaLayers>
+</button>
 
 <style>
   .theme-switch-wrapper {
+    background: none;
+    border: none;
     cursor: pointer;
     margin: 0 -1rem 0 -1rem;
-  }
-
-  .icons {
+    width: 40px;
+    height: 40px;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
   }
+ 
 </style>
