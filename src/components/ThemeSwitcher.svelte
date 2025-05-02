@@ -1,19 +1,9 @@
 <script>
   import { Fa, FaLayers } from "svelte-fa"
-  import { theme } from "../store/theme"
+  import { theme, toggleTheme } from "../store/theme"
   import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon"
   import { faSun } from "@fortawesome/free-solid-svg-icons/faSun"
 
-  function toggleTheme() {
-    theme.update((current) => {
-      return current === "light" ? "dark" : "light"
-    })
-
-    theme.subscribe((value) => {
-      localStorage.setItem("theme", value)
-      document.getElementsByTagName("body")[0].setAttribute('theme', value)
-    })
-  }
 </script>
 
 <button class="theme-switch-wrapper" onclick={toggleTheme} type="button" aria-label="Toggle theme">
