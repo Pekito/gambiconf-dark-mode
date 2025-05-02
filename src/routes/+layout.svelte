@@ -6,7 +6,7 @@
   import Seo from "../components/Seo.svelte"
   import Header from "../components/Header.svelte"
   import LocalizationProvider from "../providers/LocalizationProvider.svelte"
-  import { theme } from "../store/theme"
+  import { setInitialTheme, theme } from "../store/theme"
   import type { Theme } from "../store/theme"
   import "../app.css"
 
@@ -17,10 +17,7 @@
   let { children }: Props = $props();
 
   onMount(() => {
-    const currentTheme = localStorage.getItem("theme") ?? "light"
-    theme.set(currentTheme as Theme)
-
-    document.getElementsByTagName("body")[0].setAttribute('theme', currentTheme)
+    setInitialTheme();
   })
 </script>
 
